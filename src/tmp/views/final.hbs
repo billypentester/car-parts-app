@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <title>Document</title>
+    
+</head>
+<body class="bg-gray-100 h-screen">
+
+    <div class="bg-gray-900">
+        <a href="/"><h1 class="py-4 px-8 text-white font-semibold text-3xl inline-block">Car spare parts</h1></a>
+    </div>
+    <div class="m-4">
+        <h1 class="text-center p-4 text-2xl font-semibold text-gray-900">Order car part</h1>
+        <div class="rounded-md m-3  border border-gray-400 flex">
+            <img class="rounded-bt-md rounded-l-md w-1/5 inline-block" src={{pic}} />
+            <div class="inline-block m-4 float-right justifycontent-center">
+                
+                <h1 class="text-3xl text-center font-semibold">{{name}}</h1>
+                <div class="p-2 bg-gray-300 my-3">
+                    <button style="p-3 border border-gray-200 inline-block text-lg" onclick="inc()"><i class="fa fa-solid fa-plus"></i></button>
+                    <input id="ammount" type="text" class="bg-white mx-2 p-2 text-center" name="quantity" value="1" id="value" readonly />
+                    <button style="p-3 border border-gray-200 inline-block text-lg" onclick="dec()"><i class="fa fa-solid fa-minus"></i></button>
+                    <span class="block text-center my-2">Price per each : ${{price}}</span>
+                    <input type="hidden" name="price" value="{{price}}" />
+                </div>
+                <button class="bg-red-500 text-lg w-full text-white p-2 my-1 rounded-md text-white" onclick="show()">Order</button>
+                
+            </div>
+            <div class="rounded-md m-10 w-1/5 flex flex-col space-y-3 hidden" id="pay">
+                <h1 class="block text-2xl pl-5">Total quantity : <span id="amount"></span></h1>
+                <h1 class="block text-2xl pl-5">Price per each : $<span id="price">{{price}}</span></h1>
+                <h1 class="block text-2xl pl-5">Total price    : $<span id="total"></span></h1>
+                <form method="post" action="/bill" onsubmit="q()">
+                <input type="hidden" name="name" value="{{name}}" />
+                <input type="hidden" name="quantity" id="hq" value="{{name}}" />
+                <input type="hidden" name="price" value="{{price}}" />
+                <input type="hidden" id="htotal" name="total" />
+
+                <input class="bg-red-500 text-lg text-white p-2 rounded-md text-white text-center" type="submit" value="generate bill" />
+                
+            </div>
+            {{#if msg}}
+            <div>
+                <h1 class="bg-green-400 text-white p-3 my-3 rounded-md text-lg">{{msg}}</h1>
+            </div>
+             {{/if}}
+        </div>
+    </div>
+    </form>
+
+    <div class="bg-gray-900 fixed w-full bottom-0">
+        <h1 class="p-2 text-white font-semibold text-center">copyright &copy; 2021 All Rights reserved.</h1 >
+    </div>
+
+    <script>
+        function inc()
+        {
+            var x = parseInt(document.getElementById('ammount').value, 10);
+            x++;
+            document.getElementById('ammount').value = x;
+            
+        }
+        function dec()
+        {
+            var x = parseInt(document.getElementById('ammount').value, 10);
+            if(x < 1)
+            {
+                alert("item cannot be a negative value or zero");
+            }
+            else{
+            x--;
+            document.getElementById('ammount').value = x;
+            }
+           
+        }
+        function q()
+        {
+             var ammount = document.getElementById("ammount").value; 
+              document.getElementById("hq").value = ammount;
+        }
+        function show()
+        {
+            var amount = document.getElementById("amount").innerHTML; 
+            var ammount = document.getElementById("ammount").value; 
+            var price = document.getElementById("price").innerHTML;
+            document.getElementById("amount").innerHTML = ammount
+            var cal;
+            cal = ammount * price;
+            document.getElementById("total").innerHTML = cal;
+            document.getElementById("htotal").value = cal;
+            var element = document.getElementById("pay");
+            element.classList.remove("hidden");
+        }
+        function done()
+        {
+            alert("You've paid")
+        }
+    </script>
+
+</body>
+</html>

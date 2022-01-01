@@ -1,0 +1,54 @@
+[{
+  "_id": {
+    "$oid": "61c2255ca6bf6556dafef8ac"
+  },
+  "name": "Nissan Altima",
+  "model": "2018",
+  "parts": [
+    {
+      "name": "rear bumper",
+      "pic": "https://cdn.discordapp.com/attachments/923210556134023178/923247593931296868/rear_bumber.jpeg",
+      "price": "500"
+    },
+    {
+      "name": "oil filter",
+      "pic": "https://cdn.discordapp.com/attachments/923210556134023178/923247593709006848/oil_fliter.jpeg",
+      "price": "200"
+    },
+    {
+      "name": "air filter",
+      "pic": "https://cdn.discordapp.com/attachments/923210556134023178/923247593302130718/air_fliter.jpg",
+      "price": "100"
+    },
+    {
+      "name": "gear oil",
+      "pic": "https://cdn.discordapp.com/attachments/923210556134023178/923247593503461376/gear_oil.jpg",
+      "price": "400"
+    },
+    {
+      "name": "car seats",
+      "pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqLJG9I_w3Mq7laZQbeLF1e2zIOJZUGxb0gQ&usqp=CAU",
+      "price": "300",
+      "_id": {
+        "$oid": "61c4d11f7888e908ea6b2f69"
+      }
+    },
+    {
+      "name": "engine oil",
+      "pic": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/SIGAUS_aceite.jpg/1280px-SIGAUS_aceite.jpg",
+      "price": "140",
+      "_id": {
+        "$oid": "61c59b9fe7d6296fa364d985"
+      }
+    },
+    {
+      "name": "fresh",
+      "pic": "",
+      "price": "15",
+      "_id": {
+        "$oid": "61c5f3883f067fe904dbacaf"
+      }
+    }
+  ],
+  "pic": "https://cdn.discordapp.com/attachments/923210556134023178/923247593004347392/2017_nissan_altima_angularfront.jpg"
+}]

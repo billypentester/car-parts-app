@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document </title>
+<script>
+</script>
+</head>
+<body class="bg-gray-100 h-screen">
+
+    <div class="bg-gray-900">
+       <a href="/"><h1 class="py-4 px-8 text-white font-semibold text-3xl inline-block">Car spare parts</h1></a>
+    </div>
+
+    <div class="flex">
+
+        <div class="w-2/6 bg-gray-300 text-center p-5 h-screen">
+            <h1 class="text-center p-4 text-2xl font-semibold text-gray-900 my-4">Add parts to car</h1>
+            <form action="/additem" method="POST">
+                <div class="m-2 text-lg">
+                    <label class="block float-left">Name : </label>
+                    <input class="w-full rounded-md my-3 mx-2 p-2" name="name" type="text" />
+                </div>
+                <div class="m-2 text-lg">
+                    <label class="block float-left">Pic url : </label>
+                    <input class="w-full rounded-md my-3 mx-2 p-2" name="pic" type="text" />
+                </div>
+                <div class="m-2 text-lg">
+                    <label class="block float-left">Price : </label>
+                    <input class="w-full rounded-md my-3 mx-2 p-2" name="price" type="text" />
+                </div>
+                <div class="m-2 text-lg">
+                    <input type="submit" value="Add item" class="bg-red-500 p-3 rounded-md text-white w-1/3" />
+                </div>
+            </form>
+            {{#if msg}}
+            <h1 class="bg-green-400 text-white p-3 my-3 rounded-md text-lg">{{msg}} added to the database</h1>
+            {{/if}}
+        </div>
+
+        <div class="w-2/6 bg-gray-200 text-center p-5 h-screen">
+            <h1 class="text-center p-4 text-2xl font-semibold text-gray-900 my-4">Delete parts from car</h1>
+            <form action="/removeitem" method="GET">
+                <div class="m-2 text-lg">
+                    <label class="block float-left">Name : </label>
+                    <input class="w-full rounded-md my-3 mx-2 p-2" name="name" type="text" />
+                </div>
+                <div class="m-2 text-lg">
+                    <input type="submit" value="Remove item" class="bg-red-500 p-3 rounded-md text-white w-1/3" />
+                </div>
+            </form>
+            {{#if msg1}}
+            <h1 class="bg-green-400 text-white p-3 my-3 rounded-md text-lg">{{msg1}} removed from the database</h1>
+            {{/if}}
+        </div>  
+
+        <div class="w-2/6 bg-gray-300 text-center p-5 h-screen">
+            <h1 class="text-center p-4 text-2xl font-semibold text-gray-900 my-4">Update parts</h1>
+            <form action="/updateitem" method="GET">
+                <div class="m-2 text-lg">
+                    <label class="block float-left">Name : </label>
+                    <input class="w-full rounded-md my-3 mx-2 p-2" name="search" type="text" />
+                </div>
+                <h1 class="text-center p-2 text-lg font-semibold text-gray-900 my-2">New values</h1>
+                <div class="m-2 text-lg">
+                    <label class="block float-left">Name : </label>
+                    <input class="w-full rounded-md my-3 mx-2 p-2" name="name" type="text" />
+                </div>
+                <div class="m-2 text-lg">
+                    <label class="block float-left">Pic url : </label>
+                    <input class="w-full rounded-md my-3 mx-2 p-2" name="pic" type="text" />
+                </div>
+                 <div class="m-2 text-lg">
+                    <label class="block float-left">Price : </label>
+                    <input class="w-full rounded-md my-3 mx-2 p-2" name="price" type="text" />
+                </div>
+                <div class="m-2 text-lg">
+                    <input type="submit" value="update item" class="bg-red-500 p-3 rounded-md text-white w-1/3" />
+                </div>
+
+            </form>
+            {{#if msg3}}
+            <h1 class="bg-green-400 text-white p-3 my-3 rounded-md text-lg">{{msg3}} update in the database</h1>
+            {{/if}}
+        </div>  
+
+    </div> 
+  
+
+    <div class="bg-gray-900 fixed w-full bottom-0">
+        <h1 class="p-3 text-white font-semibold text-center">copyright &copy; 2021 All Rights reserved.</h1 >
+    </div>
+
+</body>
+</html>
